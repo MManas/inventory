@@ -6,5 +6,8 @@ var path = require('path');
 app.get('/', (req, res) => {
     res.sendFile(__dirname+'/routes/index.html');
 })
+app.get('/inventory', (req,res) => {
+    res.sendFile(__dirname+"/inventory.json");
+})
 
 app.listen(80);
