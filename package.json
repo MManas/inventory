@@ -1,0 +1,23 @@
+{
+  "name": "inventory",
+  "version": "1.0.0",
+  "description": "Robotics Inventory Tracking",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MManas/inventory.git"
+  },
+  "author": "Manas and CJ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MManas/inventory/issues"
+  },
+  "homepage": "https://github.com/MManas/inventory#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "fs": "0.0.1-security"
+  }
+}
