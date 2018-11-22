@@ -1,2 +1,24 @@
 <title>CAD Inventory</title>
 <h1>CAD Inventory</h1>
+<p id = "parts"></p>
+<script>
+
+fetch('http://localhost/inventory').then(response => {
+    return response.json();
+}).then(cadjson => {
+    var parts = [];
+    var quantity = [];
+    var data = cadjson.cad;
+    document.getElementById("parts").innerHTML = process(data);
+})
+
+
+function process(json){
+    var result = [];
+    var keys = Object.keys(json);
+    for(var i = 0; i < keys.length; i++){
+        result.push([keys[i], json[keys[i]]]);
+    }
+    return result;
+}
+</script>

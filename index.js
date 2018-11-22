@@ -9,6 +9,9 @@ app.get('/', (req, res) => {
 app.get('/inventory', (req,res) => {
     res.sendFile(__dirname+"/inventory.json");
 })
+app.get('/cad.html', (req,res) => {
+    res.sendFile(__dirname+"/routes/cad.html");
+})
 
 
 app.listen(80);
