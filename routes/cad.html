@@ -9,7 +9,7 @@ fetch('http://localhost/inventory').then(response => {
     var parts = [];
     var quantity = [];
     var data = cadjson.cad;
-    document.getElementById("parts").innerHTML = process(data);
+    var rawdata = process(data);
 })
 
 
