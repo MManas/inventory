@@ -10,7 +10,7 @@ fetch('http://localhost/inventory').then(response => {
 }).then(cadjson => {
     var parts = [];
     var quantity = [];
-    var data = cadjson.cad;
+    var data = cadjson;
     var rawdata = process(data);
     rawdata.forEach(item => {
         var p = document.createElement("p");
@@ -26,7 +26,9 @@ fetch('http://localhost/inventory').then(response => {
     submitbutton.addEventListener("click", function() {
        var req = new XMLHttpRequest();
        req.open('POST', 'http://localhost/cadupdate');
-       req.setRequestHeader("Content-Type", "application/json;charset=utf-8")
+       req.setRequestHeader("Content-Type", "application/json;charset=utf-8");
+
+       submitbutton.style.visibility = "hidden";
     })
     document.getElementById("body").append(submitbutton);
 })
