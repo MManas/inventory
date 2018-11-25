@@ -1,6 +1,8 @@
 <title>CAD Inventory</title>
 <h1>CAD Inventory</h1>
 <p id = "parts"></p>
+<body id = "body">
+</body>
 <script>
 
 fetch('http://localhost/inventory').then(response => {
@@ -10,6 +12,23 @@ fetch('http://localhost/inventory').then(response => {
     var quantity = [];
     var data = cadjson.cad;
     var rawdata = process(data);
+    rawdata.forEach(item => {
+        var p = document.createElement("p");
+        p.innerHTML = item[0] + " - " + item[1] + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspEnter a new value here for "+ item[0]  + " =====> ";
+        var i = document.createElement("input");
+        i.type = "number";
+        i.id = item[0];
+        p.append(i);
+        document.getElementById("body").append(p);
+    })
+    var submitbutton = document.createElement("button");
+    submitbutton.innerHTML = "Save Inventory and Reload Page";
+    submitbutton.addEventListener("click", function() {
+       var req = new XMLHttpRequest();
+       req.open('POST', 'http://localhost/cadupdate');
+       req.setRequestHeader("Content-Type", "application/json;charset=utf-8")
+    })
+    document.getElementById("body").append(submitbutton);
 })
 
 

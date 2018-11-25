@@ -2,7 +2,9 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 var path = require('path');
+var myParser = require('body-parser');
 
+app.use(myParser.json());
 app.get('/', (req, res) => {
     res.sendFile(__dirname+'/routes/index.html');
 })
@@ -11,6 +13,9 @@ app.get('/inventory', (req,res) => {
 })
 app.get('/cad.html', (req,res) => {
     res.sendFile(__dirname+"/routes/cad.html");
+})
+app.post('/cadupdate', (req, res) => {
+    console.log(req.body);
 })
 
 
