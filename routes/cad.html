@@ -27,7 +27,7 @@ fetch('http://localhost/inventory').then(response => {
        var req = new XMLHttpRequest();
        req.open('POST', 'http://localhost/cadupdate');
        req.setRequestHeader("Content-Type", "application/json;charset=utf-8");
-
+       
        submitbutton.style.visibility = "hidden";
     })
     document.getElementById("body").append(submitbutton);
