@@ -15,9 +15,7 @@ app.get('/cad.html', (req,res) => {
     res.sendFile(__dirname+"/routes/cad.html");
 })
 app.post('/cadupdate', (req, res) => {
-    console.log(req.body);
     fs.writeFile(__dirname+"/cad.json", JSON.stringify(req.body), () => {
-        
     })
 })
 
