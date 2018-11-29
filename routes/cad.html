@@ -28,8 +28,18 @@ fetch('http://localhost/inventory').then(response => {
        var req = new XMLHttpRequest();
        req.open('POST', 'http://localhost/cadupdate');
        req.setRequestHeader("Content-Type", "application/json;charset=utf-8");
-       
+       var newInventory = {};
+       for(var i = 0; i < rawdata.length; i++){
+           var current = document.getElementById(rawdata[i][0]).value;
+           if(current == ''){
+               newInventory[rawdata[i][0]] = rawdata[i][1];
+           }else{
+           newInventory[rawdata[i][0]] = parseInt(current);
+           }
+       }
+       req.send(JSON.stringify(newInventory));
        submitbutton.style.visibility = "hidden";
+       location.reload();
     })
     document.getElementById("body").append(submitbutton);
 })
