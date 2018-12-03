@@ -15,6 +15,9 @@ fetch('http://localhost/inventory').then(response => {
     rawdata.forEach(item => {
         var p = document.createElement("p");
         p.innerHTML = item[0] + " - " + item[1] + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspEnter a new value here for "+ item[0]  + " =====> ";
+        if(item[1] <= 4){
+            p.style.color = "red";
+        }
         var i = document.createElement("input");
         i.type = "number";
         i.id = item[0];
